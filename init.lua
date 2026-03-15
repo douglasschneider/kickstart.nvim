@@ -651,10 +651,18 @@ require('lazy').setup({
       --
       -- You can press `g?` for help in this menu.
       local ensure_installed = vim.tbl_keys(servers or {})
+      -- You can add other tools here that you want Mason to install
       vim.list_extend(ensure_installed, {
         'lua-language-server', -- Lua Language server
         'stylua', -- Used to format Lua code
-        -- You can add other tools here that you want Mason to install
+        'ansible-language-server',
+        'docker-compose-language-service',
+        'docker-language-server',
+        'bash-language-server',
+        'beautysh',
+        'terraform',
+        'terraform-ls',
+        'dotenv-linter',
       })
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
