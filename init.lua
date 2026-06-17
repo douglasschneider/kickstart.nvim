@@ -738,6 +738,7 @@ do
         },
       },
     },
+    terraformls = {},
   }
 
   vim.pack.add {
@@ -761,6 +762,9 @@ do
   vim.list_extend(ensure_installed, {
     -- You can add other tools here that you want Mason to install
     'markdownlint',
+    'terraform-ls',
+    'tflint',
+    'terraform',
   })
 
   require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -803,6 +807,9 @@ do
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       -- javascript = { "prettierd", "prettier", stop_after_first = true },
+      terraform = { 'terraform_fmt' },
+      tf = { 'terraform_fmt' },
+      hcl = { 'terraform_fmt' },
     },
   }
 
