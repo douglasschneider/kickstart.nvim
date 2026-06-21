@@ -738,7 +738,13 @@ do
         },
       },
     },
-    terraformls = {},
+    terraformls = {
+      init_options = {
+        experimentalFeatures = {
+          prefillConfig = true,
+        },
+      },
+    },
   }
 
   vim.pack.add {
@@ -788,8 +794,10 @@ do
     format_on_save = function(bufnr)
       -- You can specify filetypes to autoformat on save here:
       local enabled_filetypes = {
-        -- lua = true,
-        -- python = true,
+        lua = true,
+        python = true,
+        terraform = true,
+        hcl = true,
       }
       if enabled_filetypes[vim.bo[bufnr].filetype] then
         return { timeout_ms = 500 }
